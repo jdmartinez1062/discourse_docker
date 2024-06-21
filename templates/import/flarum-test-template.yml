@@ -98,7 +98,7 @@ hooks:
           cd $home
           echo "The Flarum import is starting..."
           echo
-          su discourse -c 'bundle exec ruby script/import_scripts/flarum_import.rb'
+          # su discourse -c 'bundle exec ruby script/import_scripts/flarum_import.rb'
 
     - exec:
         cd: $home
