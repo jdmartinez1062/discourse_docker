@@ -112,8 +112,8 @@ hooks:
         cmd:
           - git config --global --add safe.directory /var/www/discourse
           - git remote add import https://github.com/jdmartinez1062/discourse.git
-          - git fetch import flarum-migration-test
-          - git reset --hard import/flarum-migration-test
+          # - git fetch import flarum-migration-test
+          # - git reset --hard import/flarum-migration-test
           - rake db:migrate
           - echo "gem 'mysql2'" >> Gemfile
           - echo "gem 'ruby-bbcode-to-md', :github => 'nlalonde/ruby-bbcode-to-md'" >> Gemfile
