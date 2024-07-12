@@ -109,7 +109,8 @@ hooks:
     - exec:
         cd: $home
         cmd: 
-          # Add your discourse core fork and pull custom code
+          # Add your discourse core fork and pull custom code 
+          - git config --global --add safe.directory /var/www/discourse
           - git remote set-url origin https://github.com/jdmartinez1062/discourse.git
 
   after_code:
