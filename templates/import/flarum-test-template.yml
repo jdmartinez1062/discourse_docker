@@ -110,16 +110,15 @@ hooks:
         cd: $home
         cmd: 
           # Add your discourse core fork and pull custom code
-          - git remote add import https://github.com/jdmartinez1062/discourse.git
+          - git remote set-url origin https://github.com/jdmartinez1062/discourse.git
 
   after_code:
     - exec: 
         cd: $home
         cmd: 
           # Pulls the code from the vanilla branch
-          - git fetch import flarum-migration-test
-          - git reset --hard import/flarum-migration-test
-          - sh /usr/local/bin/import_vanilla.sh 
+          - git fetch origin flarum-migration-test
+          - git reset --hard origin/flarum-migration-test
 
   after_bundle_exec:
     - exec:
@@ -130,3 +129,4 @@ hooks:
           - echo "gem 'ruby-bbcode-to-md', :github => 'nlalonde/ruby-bbcode-to-md'" >> Gemfile
           - su discourse -c 'bundle config unset deployment'
           - su discourse -c 'bundle install --no-deployment --path vendor/bundle --jobs 4 --without test development'
+          - sh /usr/local/bin/import_flarum_test.sh
