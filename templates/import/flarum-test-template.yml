@@ -109,8 +109,8 @@ hooks:
     - exec:
       cd: $home
       cmd: 
-          # Add your discourse core fork and pull custom code
-          - git remote add import https://github.com/jdmartinez1062/discourse.git
+        # Add your discourse core fork and pull custom code
+        - git remote add import https://github.com/jdmartinez1062/discourse.git
 
   after_code:
     exec: 
