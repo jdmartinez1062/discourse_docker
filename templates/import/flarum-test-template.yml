@@ -105,21 +105,21 @@ hooks:
           - mkdir -p /shared/import/data
           - chown discourse -R /shared/import
 
-  #  before_code:
-  #   - exec:
-  #     cd: $home
-  #     cmd: 
-  #       # Add your discourse core fork and pull custom code
-  #       - git remote add import https://github.com/jdmartinez1062/discourse.git
+   before_code:
+    - exec:
+      cd: $home
+      cmd: 
+        # Add your discourse core fork and pull custom code
+        - git remote add import https://github.com/jdmartinez1062/discourse.git
 
-  # after_code:
-  #   exec: 
-  #     cd:
-  #     cmd: 
-  #       # Pulls the code from the vanilla branch
-  #       - git fetch import flarum-migration-test
-  #       - git reset --hard import/flarum-migration-test
-  #       - sh /usr/local/bin/import_vanilla.sh 
+  after_code:
+    - exec: 
+      cd:
+      cmd: 
+        # Pulls the code from the vanilla branch
+        - git fetch import flarum-migration-test
+        - git reset --hard import/flarum-migration-test
+        - sh /usr/local/bin/import_vanilla.sh 
 
   after_bundle_exec:
     - exec:
