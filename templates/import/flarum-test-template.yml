@@ -105,18 +105,19 @@ hooks:
           - mkdir -p /shared/import/data
           - chown discourse -R /shared/import
 
-  before_code:
-    - exec:
-        cd: $home
-        cmd: 
-          # Add your discourse core fork and pull custom code 
-          - git config --global --add safe.directory /var/www/discourse
-          - git remote set-url origin https://github.com/jdmartinez1062/discourse.git
+  # before_code:
+  #   - exec:
+  #       cd: $home
+  #       cmd: 
+  #         # Add your discourse core fork and pull custom code 
+          
 
   after_code:
     - exec: 
         cd: $home
         cmd: 
+          - git config --global --add safe.directory /var/www/discourse
+          - git remote set-url origin https://github.com/jdmartinez1062/discourse.git
           # Pulls the code from the vanilla branch
           - git fetch origin flarum-migration-test
           - git reset --hard origin/flarum-migration-test
