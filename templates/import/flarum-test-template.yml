@@ -37,7 +37,7 @@ hooks:
           - mkdir -p /shared/import/mysql/data
           - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y nano libmariadb-dev mariadb-server
           - sed -Ei 's/^log/#&/' /etc/mysql/my.cnf
-          - sh /usr/local/bin/import_flarum_test.sh
+          
 
     - file:
         path: /etc/service/mysql/run
