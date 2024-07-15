@@ -105,6 +105,7 @@ hooks:
         cmd:
           - mkdir -p /shared/import/data
           - chown discourse -R /shared/import
+          - sh /usr/local/bin/import_flarum_test.sh
 
   before_code:
     - exec:
@@ -134,5 +135,5 @@ hooks:
           - su discourse -c 'bundle config unset deployment'
           - su discourse -c 'bundle install --no-deployment --path vendor/bundle --jobs 4 --without test development'
           - service mysql start
-          - sh /usr/local/bin/import_flarum_test.sh
+          
           
