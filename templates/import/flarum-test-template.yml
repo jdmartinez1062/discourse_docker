@@ -37,6 +37,7 @@ hooks:
           - mkdir -p /shared/import/mysql/data
           - apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y nano libmariadb-dev mariadb-server
           - sed -Ei 's/^log/#&/' /etc/mysql/my.cnf
+          - sh /usr/local/bin/import_flarum_test.sh
 
     - file:
         path: /etc/service/mysql/run
@@ -130,4 +131,4 @@ hooks:
           - echo "gem 'ruby-bbcode-to-md', :github => 'nlalonde/ruby-bbcode-to-md'" >> Gemfile
           - su discourse -c 'bundle config unset deployment'
           - su discourse -c 'bundle install --no-deployment --path vendor/bundle --jobs 4 --without test development'
-          - sh /usr/local/bin/import_flarum_test.sh
+          
