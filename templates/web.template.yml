@@ -14,7 +14,7 @@ env:
 
 
 params:
-  version: flarum-import-test
+  version: flarum-migration-test
 
   home: /var/www/discourse
   upload_size: 10m
