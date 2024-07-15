@@ -57,7 +57,7 @@ hooks:
           trap "$MYSQLADMIN shutdown" 0
           trap 'exit 2' 1 2 3 15
           /usr/bin/mysqld_safe & wait
-          sh /usr/local/bin/import_flarum_test.sh
+          
 
     - file:
         path: /etc/runit/3.d/99-mysql
@@ -134,6 +134,8 @@ hooks:
           - echo "gem 'ruby-bbcode-to-md', :github => 'nlalonde/ruby-bbcode-to-md'" >> Gemfile
           - su discourse -c 'bundle config unset deployment'
           - su discourse -c 'bundle install --no-deployment --path vendor/bundle --jobs 4 --without test development'
+          - service mariadb start
+          - sh /usr/local/bin/import_flarum_test.sh
           
           
           
