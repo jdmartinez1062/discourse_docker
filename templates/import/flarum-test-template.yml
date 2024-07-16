@@ -112,7 +112,7 @@ hooks:
         cd: $home
         cmd: 
           # Add your discourse core fork and pull custom code 
-            - su discourse -c 'git remote set-url origin https://github.com/jdmartinez1062/discourse.git'
+          - su discourse -c 'git remote set-url origin https://github.com/jdmartinez1062/discourse.git'
           
 
   after_code:
